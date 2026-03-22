@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diego Davi de Oliveira Dias | Portfólio Front-End</title>
+    <meta
+      name="description"
+      content="Portfólio de Diego Davi de Oliveira Dias, desenvolvedor Front-End iniciante com foco em HTML, CSS e JavaScript."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0d13;
+        --bg-soft: #121724;
+        --panel: #171d2d;
+        --panel-2: #1d2538;
+        --text: #f2f5ff;
+        --text-soft: #aab5d4;
+        --accent: #22d3ee;
+        --accent-2: #f59e0b;
+        --line: rgba(255, 255, 255, 0.08);
+        --shadow: 0 16px 45px rgba(0, 0, 0, 0.45);
+        --max: 1100px;
+        --radius: 16px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family: "Sora", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 10% 10%,
+            rgba(34, 211, 238, 0.16),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 90% 20%,
+            rgba(245, 158, 11, 0.12),
+            transparent 35%
+          ),
+          linear-gradient(160deg, #07090f 0%, #0b1019 45%, #090d16 100%);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(92%, var(--max));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 5.5rem 0;
+      }
+
+      .section-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        margin-bottom: 1rem;
+      }
+
+      .section-subtitle {
+        color: var(--text-soft);
+        max-width: 720px;
+        margin-bottom: 2.2rem;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(12px);
+        background: rgba(7, 10, 16, 0.72);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .navbar {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+      }
+
+      .brand span {
+        color: var(--accent);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-soft);
+        font-size: 0.95rem;
+        transition: color 0.25s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--accent);
+      }
+
+      .hero {
+        padding: 6.5rem 0 4.5rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid rgba(34, 211, 238, 0.35);
+        color: #b6f5ff;
+        background: rgba(34, 211, 238, 0.08);
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        margin-bottom: 1.3rem;
+      }
+
+      h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2.1rem, 5vw, 3.7rem);
+        line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        color: var(--text-soft);
+        max-width: 60ch;
+      }
+
+      .hero-actions {
+        margin-top: 1.8rem;
+        display: flex;
+        gap: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.15rem;
+        border-radius: 12px;
+        font-weight: 600;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          background 0.25s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, var(--accent), #0ea5e9);
+        color: #011018;
+        box-shadow: 0 10px 25px rgba(34, 211, 238, 0.22);
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(34, 211, 238, 0.3);
+      }
+
+      .btn-outline {
+        border: 1px solid var(--line);
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .btn-outline:hover,
+      .btn-outline:focus-visible {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .hero-card {
+        background: linear-gradient(
+          150deg,
+          rgba(34, 211, 238, 0.08),
+          rgba(23, 29, 45, 0.9)
+        );
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.4rem;
+        box-shadow: var(--shadow);
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #34d399;
+        border-radius: 50%;
+        box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.14);
+      }
+
+      .hero-card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        color: var(--text-soft);
+        font-size: 0.9rem;
+      }
+
+      .hero-highlights {
+        list-style: none;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .hero-highlights li {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 0.8rem;
+        font-size: 0.95rem;
+      }
+
+      .about,
+      .skills,
+      .projects,
+      .contact {
+        border-top: 1px solid var(--line);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: linear-gradient(
+          160deg,
+          var(--panel) 0%,
+          var(--panel-2) 100%
+        );
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        box-shadow: var(--shadow);
+      }
+
+      .qualities {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1rem;
+      }
+
+      .chip {
+        border: 1px solid rgba(245, 158, 11, 0.35);
+        color: #ffd9a2;
+        background: rgba(245, 158, 11, 0.1);
+        border-radius: 999px;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.82rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .skill-item {
+        background: linear-gradient(
+          160deg,
+          var(--panel) 0%,
+          var(--panel-2) 100%
+        );
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 0.95rem;
+      }
+
+      .skill-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.55rem;
+        font-size: 0.93rem;
+      }
+
+      .skill-track {
+        width: 100%;
+        height: 9px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .skill-fill {
+        width: 0;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        transition: width 1s cubic-bezier(0.21, 1, 0.22, 1);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .project {
+        background: linear-gradient(
+          160deg,
+          var(--panel) 0%,
+          var(--panel-2) 100%
+        );
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        box-shadow: var(--shadow);
+      }
+
+      .project h3 {
+        font-size: 1.1rem;
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .project p {
+        color: var(--text-soft);
+      }
+
+      .project-stack {
+        display: flex;
+        gap: 0.45rem;
+        flex-wrap: wrap;
+      }
+
+      .stack-item {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.78rem;
+        color: var(--text-soft);
+      }
+
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .contact-list {
+        list-style: none;
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .contact-list a {
+        color: #cdeaff;
+        text-decoration: underline;
+        text-decoration-color: rgba(34, 211, 238, 0.45);
+        text-underline-offset: 3px;
+      }
+
+      .footer {
+        border-top: 1px solid var(--line);
+        padding: 1.7rem 0 2.5rem;
+        color: var(--text-soft);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.75s ease,
+          transform 0.75s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 950px) {
+        .hero-grid,
+        .about-grid,
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 5rem;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .nav-links {
+          display: none;
+        }
+
+        .section {
+          padding: 4.2rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="#inicio" class="brand">Diego<span>.dev</span></a>
+        <nav aria-label="Navegação principal">
+          <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero section reveal">
+        <div class="container hero-grid">
+          <div>
+            <span class="tag">Disponível para freelas e vagas júnior</span>
+            <h1>Diego Oliveira<br />Desenvolvedor Front-End Iniciante</h1>
+            <p>
+              Construo interfaces modernas com foco em experiência do usuário,
+              código limpo e responsividade. Tenho base sólida em HTML, CSS e
+              JavaScript, aplicando esses conhecimentos em projetos acadêmicos e
+              práticos.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contato">Falar comigo</a>
+              <a class="btn btn-outline" href="Curriculo/curriculoo.pdf" download
+                >Baixar currículo (PDF)</a
+              >
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Resumo profissional">
+            <div class="hero-card-head">
+              <span>Resumo rápido</span>
+              <span class="status-dot" aria-hidden="true"></span>
+            </div>
+            <ul class="hero-highlights">
+              <li>Foco técnico: HTML, CSS, JavaScript</li>
+              <li>Especialidade: landing pages e interfaces responsivas</li>
+              <li>
+                Destaque acadêmico: projeto real para trabalhadores informais
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="about section reveal" id="sobre">
+        <div class="container about-grid">
+          <article>
+            <h2 class="section-title">Sobre mim</h2>
+            <p class="section-subtitle">
+              Sou Diego, desenvolvedor Front-End em início de carreira,
+              apaixonado por transformar ideias em páginas funcionais,
+              responsivas e visualmente agradáveis. Venho desenvolvendo projetos
+              acadêmicos práticos, com aprendizado contínuo em estrutura de
+              código, usabilidade e colaboração em equipe.
+            </p>
+            <p class="section-subtitle">
+              Busco oportunidades como freelancer e em times de desenvolvimento
+              para evoluir tecnicamente e contribuir com soluções digitais de
+              valor.
+            </p>
+          </article>
+
+          <aside class="card" aria-label="Qualidades profissionais">
+            <h3>Qualidades profissionais</h3>
+            <div class="qualities">
+              <span class="chip">Pontualidade</span>
+              <span class="chip">Organização</span>
+              <span class="chip">Trabalho em equipe</span>
+              <span class="chip">Comunicação</span>
+              <span class="chip">Proatividade</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="skills section reveal" id="habilidades">
+        <div class="container">
+          <h2 class="section-title">Habilidades</h2>
+          <p class="section-subtitle">
+            Tecnologias e competências que já aplico no dia a dia, com foco em
+            evolução constante.
+          </p>
+
+          <div class="skills-grid">
+            <!-- Barras preenchidas via JavaScript para criar efeito progressivo na entrada -->
+            <div class="skill-item">
+              <div class="skill-top"><span>HTML</span><span>90%</span></div>
+              <div class="skill-track">
+                <div class="skill-fill" data-level="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-top"><span>CSS</span><span>85%</span></div>
+              <div class="skill-track">
+                <div class="skill-fill" data-level="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-top">
+                <span>JavaScript</span><span>78%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-level="78"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-top">
+                <span>Interfaces responsivas</span><span>82%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-level="82"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-top">
+                <span>Manipulação de DOM</span><span>75%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-level="75"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-top">
+                <span>Banco de dados (iniciante)</span><span>50%</span>
+              </div>
+              <div class="skill-track">
+                <div class="skill-fill" data-level="50"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects section reveal" id="projetos">
+        <div class="container">
+          <h2 class="section-title">Projetos</h2>
+          <p class="section-subtitle">
+            Experiências práticas que representam meu momento profissional.
+          </p>
+
+          <div class="projects-grid">
+            <article class="project">
+              <h3>Site para Trabalhadores Informais</h3>
+              <p>
+                Projeto acadêmico em grupo com objetivo de conectar
+                trabalhadores informais a oportunidades. Atuei no
+                desenvolvimento de layout, estrutura de páginas e interações de
+                interface.
+              </p>
+              <div class="project-stack">
+                <span class="stack-item">HTML</span>
+                <span class="stack-item">CSS</span>
+                <span class="stack-item">JavaScript</span>
+                <span class="stack-item">Trabalho em equipe</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <h3>Landing Pages Responsivas</h3>
+              <p>
+                Conjunto de páginas desenvolvidas para estudos de design
+                responsivo, sem frameworks, priorizando clareza visual,
+                performance e boa experiência em dispositivos móveis.
+              </p>
+              <div class="project-stack">
+                <span class="stack-item">UI responsiva</span>
+                <span class="stack-item">CSS moderno</span>
+                <span class="stack-item">Acessibilidade básica</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section reveal" id="contato">
+        <div class="container contact-wrap">
+          <article>
+            <h2 class="section-title">Contato</h2>
+            <p class="section-subtitle">
+              Estou aberto a propostas de freelas, estágios e oportunidades
+              júnior em Front-End. Se quiser conversar sobre um projeto, será um
+              prazer falar com você.
+            </p>
+          </article>
+
+          <aside class="card" aria-label="Links de contato">
+            <ul class="contact-list">
+              <li>
+                E-mail: <a href="mailto:diegodavi2509@gmail.com">diegodavi2509@gmail.com</a>
+              </li>
+              <li>
+                GitHub:
+                <a
+                  href="https://github.com/DiegoOliveiraz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >github.com/DiegoOliveiraz</a
+                >
+              </li>
+             
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; <span id="currentYear"></span> Diego. Todos os direitos
+          reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Revela seções no scroll usando IntersectionObserver.
+      const revealElements = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.18 },
+      );
+
+      revealElements.forEach((element) => revealObserver.observe(element));
+
+      // Anima barras de habilidade quando a seção entrar em tela.
+      const skillFills = document.querySelectorAll(".skill-fill");
+      const skillsSection = document.querySelector("#habilidades");
+
+      const skillsObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              skillFills.forEach((fill) => {
+                fill.style.width = fill.dataset.level + "%";
+              });
+              skillsObserver.disconnect();
+            }
+          });
+        },
+        { threshold: 0.35 },
+      );
+
+      if (skillsSection) {
+        skillsObserver.observe(skillsSection);
+      }
+
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
